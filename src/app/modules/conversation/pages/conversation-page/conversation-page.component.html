@@ -1,1 +1,5 @@
-<p [style.color]="'white'" [style.fontSize]="'30px'">{{ 'helloWorld' | transloco }}</p>
+<div *ngIf="conversationState$ | async as conversationState" class="container">
+  <p *ngIf="!conversationState.wasConnected">
+    {{ 'conversation.unknownErrorTryAgain' | transloco }}
+  </p>
+</div>

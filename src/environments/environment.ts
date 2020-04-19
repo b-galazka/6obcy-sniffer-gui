@@ -1,3 +1,4 @@
 export const environment = {
-  production: false
+  production: false,
+  wsApiUrl: 'ws://localhost:3001'
 };

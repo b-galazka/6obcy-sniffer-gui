@@ -1,3 +1,5 @@
 {
-  "helloWorld": "Witaj świecie!"
+  "conversation": {
+    "unknownErrorTryAgain": "Wystąpił nieznany błąd. Spróbuj ponownie później."
+  }
 }

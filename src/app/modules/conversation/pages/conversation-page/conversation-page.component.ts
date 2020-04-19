@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ConversationService } from '../../services/conversation/conversation.service';
 
 @Component({
   selector: 'app-conversation-page',
@@ -6,4 +7,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./conversation-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ConversationPageComponent {}
+export class ConversationPageComponent {
+  readonly conversationState$ = this.conversationService.state$;
+
+  constructor(private readonly conversationService: ConversationService) {}
+}
