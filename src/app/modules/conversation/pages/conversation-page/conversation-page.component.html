@@ -1,5 +1,27 @@
-<div *ngIf="conversationState$ | async as conversationState" class="container">
-  <p *ngIf="!conversationState.wasConnected">
-    {{ 'conversation.unknownErrorTryAgain' | transloco }}
-  </p>
+<div
+  *ngIf="conversationState$ | async as conversationState"
+  class="container page-container"
+  [class.centered-content]="!conversationState.wasConnected"
+>
+  <div
+    *ngIf="!conversationState.wasConnected; else pageContent"
+    class="rounded-box connection-error"
+  >
+    <p>{{ 'conversation.unknownErrorTryAgain' | transloco }}</p>
+  </div>
+
+  <ng-template #pageContent>
+    <header class="rounded-box centered-content page-header">
+      <p class="users-count">{{ conversationState.usersCount }}</p>
+
+      <p>
+        {{
+          (conversationState.usersCount === 1
+            ? 'conversation.oneActiveUser'
+            : 'conversation.xOfactiveUsers'
+          ) | transloco
+        }}
+      </p>
+    </header>
+  </ng-template>
 </div>

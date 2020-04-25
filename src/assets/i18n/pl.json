@@ -1,5 +1,7 @@
 {
   "conversation": {
-    "unknownErrorTryAgain": "Wystąpił nieznany błąd. Spróbuj ponownie później."
+    "unknownErrorTryAgain": "Wystąpił nieznany błąd. Spróbuj ponownie później.",
+    "oneActiveUser": "aktywny użytkownik",
+    "xOfactiveUsers": "aktywnych użytkowników"
   }
 }
