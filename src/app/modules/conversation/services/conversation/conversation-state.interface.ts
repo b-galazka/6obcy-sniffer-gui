@@ -3,4 +3,5 @@ export interface IConversationState {
   isConnecting: boolean;
   isConnected: boolean;
   isConnectionError: boolean;
+  usersCount: number | null;
 }

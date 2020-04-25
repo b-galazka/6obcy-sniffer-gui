@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { BaseStateService } from '../../../core/services/base-state.service';
 import { ConversationWebsocketService } from '../conversation-websocket/conversation-websocket.service';
 import { ConversationExternalInputEventUnion } from '../conversation-websocket/input-events/external-events/conversation-external-input-event-union.type';
+import { ConversationExternalInputEvent } from '../conversation-websocket/input-events/external-events/conversation-external-input-event.enum';
+import { IUsersCountInputEvent } from '../conversation-websocket/input-events/external-events/events/users-count-input-event.interface';
 import { IConversationState } from './conversation-state.interface';
 
 @Injectable()
@@ -12,7 +14,8 @@ export class ConversationService extends BaseStateService<IConversationState> {
       wasConnected: false,
       isConnecting: false,
       isConnected: false,
-      isConnectionError: false
+      isConnectionError: false,
+      usersCount: null
     });
   }
 
@@ -23,23 +26,39 @@ export class ConversationService extends BaseStateService<IConversationState> {
 
     this.conversationWebsocketService.initConnection()?.subscribe(
       event => this.handleConversationEvent(event),
-      () => this.handleWebSocketError(),
+      () => this.handleWebSocketDisconnect(),
       () => this.handleWebSocketDisconnect()
     );
   }
 
   private handleConversationEvent(event: ConversationExternalInputEventUnion): void {
-    // TODO: update state
-    console.log(event);
+    switch (event.event) {
+      case ConversationExternalInputEvent.connectionInitSuccess:
+        this.handleConnectionInitSuccess();
+        break;
+
+      case ConversationExternalInputEvent.usersCount:
+        this.handleUsersCount(event);
+        break;
+
+      default:
+    }
   }
 
-  private handleWebSocketError(): void {
-    // TODO: update state
-    console.log('error');
+  private handleConnectionInitSuccess(): void {
+    this.setState({
+      wasConnected: true,
+      isConnecting: false,
+      isConnected: true,
+      isConnectionError: false
+    });
+  }
+
+  private handleUsersCount({ data: { usersCount } }: IUsersCountInputEvent): void {
+    this.setState({ usersCount });
   }
 
   private handleWebSocketDisconnect(): void {
-    // TODO: update state
-    console.log('disconnect');
+    this.setState({ isConnecting: false, isConnected: false, isConnectionError: true });
   }
 }
