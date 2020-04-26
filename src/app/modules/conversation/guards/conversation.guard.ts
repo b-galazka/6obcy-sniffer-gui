@@ -3,8 +3,8 @@ import { CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { first, mapTo } from 'rxjs/operators';
 
-import { IConversationState } from '../services/conversation/conversation-state.interface';
 import { ConversationService } from '../services/conversation/conversation.service';
+import { IConversationState } from '../services/conversation/interfaces/conversation-state.interface';
 
 @Injectable()
 export class ConversationGuard implements CanActivate {

@@ -7,7 +7,7 @@
     "build": "ng build",
     "build:prod": "ng build --prod && npm run transloco:optimize",
     "test": "ng test",
-    "transloco:optimize": "transloco-optimize dist/todo-list-ngrx/assets/i18n",
+    "transloco:optimize": "transloco-optimize dist/obcy-sniffer-gui/assets/i18n",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "e2e": "ng e2e",
@@ -29,6 +29,7 @@
     "reset-css": "^5.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
+    "uuid": "^7.0.3",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
@@ -39,6 +40,7 @@
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
+    "@types/uuid": "^7.0.3",
     "codelyzer": "^5.1.2",
     "husky": "^4.2.5",
     "jasmine-core": "~3.5.0",
