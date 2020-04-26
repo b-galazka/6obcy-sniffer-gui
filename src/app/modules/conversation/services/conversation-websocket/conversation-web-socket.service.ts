@@ -14,7 +14,7 @@ import { ConversationOutputEventUnion } from './output-events/conversation-outpu
 import { ConversationInternalOutputEvent } from './output-events/internal-events/conversation-internal-output-event.enum';
 
 @Injectable()
-export class ConversationWebsocketService {
+export class ConversationWebSocketService {
   private webSocket$: WebSocketSubject<
     ConversationInputEventUnion | ConversationOutputEventUnion
   > | null;

@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { getClassMethodsNames } from 'src/app/modules/shared/utils/get-class-methods-names.util';
+import { ConversationService } from '../../services/conversation/conversation.service';
 import { ConversationPageComponent } from './conversation-page.component';
 
 describe('ConversationPageComponent', () => {
@@ -8,7 +10,13 @@ describe('ConversationPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ConversationPageComponent]
+      declarations: [ConversationPageComponent],
+      providers: [
+        {
+          provide: ConversationService,
+          useValue: jasmine.createSpyObj(getClassMethodsNames(ConversationService))
+        }
+      ]
     }).compileComponents();
   }));
 

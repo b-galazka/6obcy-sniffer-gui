@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { v4 as generateUuid } from 'uuid';
 
 import { BaseStateService } from '../../../core/services/base-state.service';
-import { ConversationWebsocketService } from '../conversation-websocket/conversation-websocket.service';
+import { ConversationWebSocketService } from '../conversation-websocket/conversation-web-socket.service';
 import { ConversationExternalInputEventUnion } from '../conversation-websocket/input-events/external-events/conversation-external-input-event-union.type';
 import { ConversationExternalInputEvent } from '../conversation-websocket/input-events/external-events/conversation-external-input-event.enum';
 import { IBaseStrangerInputEventPayload } from '../conversation-websocket/input-events/external-events/payloads/base-stranger-input-event-payload.interface';
@@ -18,7 +18,7 @@ import { IMessage, IMessageCreationPayload } from './interfaces/message.interfac
 
 @Injectable()
 export class ConversationService extends BaseStateService<IConversationState> {
-  constructor(private readonly conversationWebsocketService: ConversationWebsocketService) {
+  constructor(private readonly conversationWebsocketService: ConversationWebSocketService) {
     super({
       wasConnected: false,
       isConnecting: false,
