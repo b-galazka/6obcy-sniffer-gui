@@ -2,12 +2,12 @@
 
 * {
   box-sizing: border-box;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
-  font-size: 15px;
+  font-size: 10px;
 }
 
 body {
@@ -19,14 +19,14 @@ body {
 .container {
   width: 100%;
   max-width: 1200px;
-  padding: 16px;
+  padding: 1.6rem;
   margin: auto;
 }
 
 .rounded-box {
-  padding: 16px;
+  padding: 1.6rem;
   background-color: $gray;
-  border-radius: 8px;
+  border-radius: 0.8rem;
 }
 
 .centered-content {
