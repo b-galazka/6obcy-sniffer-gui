@@ -1,1 +1,30 @@
-<p>message-form works!</p>
+<form>
+  <div class="stranger-buttons-container">
+    <button type="button" class="rounded-box stranger-button stranger-button-green">
+      <p>{{ 'conversation.sendToGreenStranger' | transloco }}</p>
+      <p class="button-hint">({{ 'conversation.altPlus1' | transloco }})</p>
+    </button>
+
+    <button type="button" class="rounded-box stranger-button stranger-button-blue">
+      <p>{{ 'conversation.sendToBlueStranger' | transloco }}</p>
+      <p class="button-hint">({{ 'conversation.altPlus2' | transloco }})</p>
+    </button>
+  </div>
+
+  <div class="textarea-container">
+    <button type="button" class="rounded-box textarea-button">
+      <p>{{ 'conversation.endConversation' | transloco }}</p>
+      <p class="button-hint">({{ 'conversation.esc' | transloco }})</p>
+    </button>
+
+    <textarea
+      class="rounded-box textarea"
+      [placeholder]="'conversation.typeYourMessage' | transloco"
+    ></textarea>
+
+    <button class="rounded-box textarea-button">
+      <p>{{ 'conversation.send' | transloco }}</p>
+      <p class="button-hint">({{ 'conversation.enter' | transloco }})</p>
+    </button>
+  </div>
+</form>

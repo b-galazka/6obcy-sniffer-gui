@@ -8,12 +8,34 @@
 
 html {
   font-size: 10px;
+
+  @media (max-width: $phone-breakpoint) {
+    font-size: 7px;
+  }
 }
 
 body {
   background-color: $dark-gray;
-  color: $white;
   line-height: 1.2;
+  color: $white;
+}
+
+button {
+  cursor: pointer;
+  color: $white;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &.rounded-box {
+    color: $white;
+    border: 1px solid $white;
+  }
+}
+
+textarea.rounded-box {
+  color: $white;
 }
 
 .container {
@@ -27,6 +49,7 @@ body {
   padding: 1.6rem;
   background-color: $gray;
   border-radius: 0.8rem;
+  border: none;
 }
 
 .centered-content {

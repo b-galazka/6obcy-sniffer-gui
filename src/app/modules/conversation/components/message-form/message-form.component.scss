@@ -1,0 +1,57 @@
+// TODO: RWD
+@import 'variables';
+
+.stranger-buttons-container {
+  margin-bottom: 1.6rem;
+  display: flex;
+}
+
+.stranger-button {
+  flex: 1 1 auto;
+  border: 2px solid transparent;
+
+  &:first-child {
+    margin-right: 1.6rem;
+  }
+}
+
+.stranger-button-green {
+  border-color: $stranger-green;
+  color: $stranger-green;
+}
+
+.stranger-button-blue {
+  border-color: $stranger-blue;
+  color: $stranger-blue;
+}
+
+.button-hint {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.stranger-button-filled {
+  &.stranger-button-green {
+    background-color: $stranger-green;
+  }
+
+  &.stranger-button-blue {
+    background-color: $stranger-blue;
+  }
+}
+
+.textarea-container {
+  display: flex;
+}
+
+.textarea-button {
+  width: 10rem;
+  height: 10rem;
+}
+
+.textarea {
+  resize: none;
+  margin: 0 1.6rem;
+  flex: 1 1 auto;
+  height: 10rem;
+}

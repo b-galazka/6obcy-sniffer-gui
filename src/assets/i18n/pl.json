@@ -2,6 +2,15 @@
   "conversation": {
     "unknownErrorTryAgain": "Wystąpił nieznany błąd. Spróbuj ponownie później.",
     "oneActiveUser": "aktywny użytkownik",
-    "xOfactiveUsers": "aktywnych użytkowników"
+    "xOfactiveUsers": "aktywnych użytkowników",
+    "sendToGreenStranger": "Wyślij zielonemu obcemu",
+    "sendToBlueStranger": "Wyślij niebieskiemu obcemu",
+    "altPlus1": "alt + 1",
+    "altPlus2": "alt + 2",
+    "endConversation": "Zakończ rozmowę",
+    "send": "Wyślij",
+    "enter": "enter",
+    "esc": "esc",
+    "typeYourMessage": "Napisz wiadomość..."
   }
 }
