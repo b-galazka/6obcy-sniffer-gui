@@ -1,0 +1,16 @@
+<header class="rounded-box centered-content page-header">
+  <figure class="logo-container">
+    <img src="/assets/images/logo.svg" alt="logo" class="logo" />
+  </figure>
+
+  <div class="users-count-container">
+    <p class="users-count">{{ activeUsersCount }}</p>
+
+    <p>
+      {{
+        (activeUsersCount === 1 ? 'conversation.oneActiveUser' : 'conversation.xOfactiveUsers')
+          | transloco
+      }}
+    </p>
+  </div>
+</header>

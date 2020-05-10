@@ -1,0 +1,24 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.6rem 0 0.8rem;
+}
+
+.logo-container {
+  height: 90px;
+}
+
+.logo {
+  height: 100%;
+}
+
+.users-count-container {
+  text-align: right;
+  padding: 1.6rem 0;
+  margin-left: 30px;
+}
+
+.users-count {
+  font-size: 4.5rem;
+  line-height: 1;
+}

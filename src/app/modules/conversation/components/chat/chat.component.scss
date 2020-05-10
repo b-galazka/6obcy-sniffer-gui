@@ -1,1 +1,9 @@
 // TODO: add min-height and scrollbar
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-container {
+  flex: 1 1 auto;
+}

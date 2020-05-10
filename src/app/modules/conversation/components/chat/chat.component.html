@@ -1,3 +1,5 @@
-<p *ngFor="let message of messages; trackBy: trackMessages">
-  {{ message | json }}
-</p>
+<section class="rounded-box chat-container">
+  <p *ngFor="let message of messages; trackBy: trackMessages">
+    {{ message | json }}
+  </p>
+</section>
