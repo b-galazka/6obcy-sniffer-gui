@@ -11,6 +11,7 @@
     "send": "Wyślij",
     "enter": "enter",
     "esc": "esc",
-    "typeYourMessage": "Napisz wiadomość..."
+    "typeYourMessage": "Napisz wiadomość...",
+    "areYouSure": "Na pewno?"
   }
 }

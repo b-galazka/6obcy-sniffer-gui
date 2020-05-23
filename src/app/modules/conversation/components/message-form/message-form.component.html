@@ -26,7 +26,16 @@
 
   <div class="textarea-container">
     <button type="button" class="rounded-box textarea-button" [disabled]="isDisabled">
-      <p>{{ 'conversation.endConversation' | transloco }}</p>
+      <p [ngSwitch]="conversationEndStep$ | async">
+        <ng-container *ngSwitchCase="ConversationEndStep.endConversation">
+          {{ 'conversation.endConversation' | transloco }}
+        </ng-container>
+
+        <ng-container *ngSwitchCase="ConversationEndStep.confirmConversationEnd">
+          {{ 'conversation.areYouSure' | transloco }}
+        </ng-container>
+      </p>
+
       <p class="button-hint">({{ 'conversation.esc' | transloco }})</p>
     </button>
 
