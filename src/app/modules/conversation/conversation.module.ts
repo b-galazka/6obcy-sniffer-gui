@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { ChatComponent } from './components/chat/chat.component';
@@ -16,7 +17,7 @@ import { ConversationService } from './services/conversation/conversation.servic
     MessageFormComponent,
     ConversationPageHeaderComponent
   ],
-  imports: [ConversationRoutingModule, SharedModule],
+  imports: [ConversationRoutingModule, SharedModule, ReactiveFormsModule],
   providers: [ConversationService, ConversationWebSocketService]
 })
 export class ConversationModule {}

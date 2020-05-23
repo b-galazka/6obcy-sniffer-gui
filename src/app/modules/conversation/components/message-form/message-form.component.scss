@@ -15,14 +15,14 @@
   }
 }
 
-.stranger-button-green {
-  border-color: $stranger-green;
-  color: $stranger-green;
+.first-stranger-button {
+  border-color: $first-stranger-green;
+  color: $first-stranger-green;
 }
 
-.stranger-button-blue {
-  border-color: $stranger-blue;
-  color: $stranger-blue;
+.second-stranger-button {
+  border-color: $second-stranger-blue;
+  color: $second-stranger-blue;
 }
 
 .button-hint {
@@ -31,12 +31,14 @@
 }
 
 .stranger-button-filled {
-  &.stranger-button-green {
-    background-color: $stranger-green;
+  color: $white;
+
+  &.first-stranger-button {
+    background-color: $first-stranger-green;
   }
 
-  &.stranger-button-blue {
-    background-color: $stranger-blue;
+  &.second-stranger-button {
+    background-color: $second-stranger-blue;
   }
 }
 

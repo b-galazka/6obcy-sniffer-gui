@@ -1,28 +1,44 @@
-<form>
+<!-- TODO: add styles for hovered and disabled buttons/inputs -->
+<form [formGroup]="form" (ngSubmit)="submitForm()">
   <div class="stranger-buttons-container">
-    <button type="button" class="rounded-box stranger-button stranger-button-green">
+    <button
+      type="button"
+      class="rounded-box stranger-button first-stranger-button"
+      [class.stranger-button-filled]="form.value.messageReceivers | arrayIncludes: Stranger.first"
+      [disabled]="isDisabled"
+      (click)="toggleFirstStranger()"
+    >
       <p>{{ 'conversation.sendToGreenStranger' | transloco }}</p>
       <p class="button-hint">({{ 'conversation.altPlus1' | transloco }})</p>
     </button>
 
-    <button type="button" class="rounded-box stranger-button stranger-button-blue">
+    <button
+      type="button"
+      class="rounded-box stranger-button second-stranger-button"
+      [class.stranger-button-filled]="form.value.messageReceivers | arrayIncludes: Stranger.second"
+      [disabled]="isDisabled"
+      (click)="toggleSecondStranger()"
+    >
       <p>{{ 'conversation.sendToBlueStranger' | transloco }}</p>
       <p class="button-hint">({{ 'conversation.altPlus2' | transloco }})</p>
     </button>
   </div>
 
   <div class="textarea-container">
-    <button type="button" class="rounded-box textarea-button">
+    <button type="button" class="rounded-box textarea-button" [disabled]="isDisabled">
       <p>{{ 'conversation.endConversation' | transloco }}</p>
       <p class="button-hint">({{ 'conversation.esc' | transloco }})</p>
     </button>
 
     <textarea
       class="rounded-box textarea"
+      formControlName="messageContent"
       [placeholder]="'conversation.typeYourMessage' | transloco"
+      [disabled]="isDisabled"
+      (keydown.enter)="$event.preventDefault(); submitForm()"
     ></textarea>
 
-    <button class="rounded-box textarea-button">
+    <button class="rounded-box textarea-button" [disabled]="form.invalid || isDisabled">
       <p>{{ 'conversation.send' | transloco }}</p>
       <p class="button-hint">({{ 'conversation.enter' | transloco }})</p>
     </button>
