@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TranslocoModule } from '@ngneat/transloco';
 
+import { ArrayIncludesPipe } from 'src/app/modules/shared/pipes/array-includes.pipe';
 import { MessageFormComponent } from './message-form.component';
 
 describe('MessageFormComponent', () => {
@@ -8,7 +11,8 @@ describe('MessageFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MessageFormComponent]
+      declarations: [MessageFormComponent, ArrayIncludesPipe],
+      imports: [ReactiveFormsModule, TranslocoModule]
     }).compileComponents();
   }));
 

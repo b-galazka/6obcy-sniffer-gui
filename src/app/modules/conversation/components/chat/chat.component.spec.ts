@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslocoModule } from '@ngneat/transloco';
 
 import { ChatComponent } from './chat.component';
 
@@ -8,7 +9,8 @@ describe('ChatComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ChatComponent]
+      declarations: [ChatComponent],
+      imports: [TranslocoModule]
     }).compileComponents();
   }));
 

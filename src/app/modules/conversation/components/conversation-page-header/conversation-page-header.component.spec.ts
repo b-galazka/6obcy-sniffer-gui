@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslocoModule } from '@ngneat/transloco';
 
 import { ConversationPageHeaderComponent } from './conversation-page-header.component';
 
@@ -8,7 +9,8 @@ describe('ConversationPageHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ConversationPageHeaderComponent]
+      declarations: [ConversationPageHeaderComponent],
+      imports: [TranslocoModule]
     }).compileComponents();
   }));
 
