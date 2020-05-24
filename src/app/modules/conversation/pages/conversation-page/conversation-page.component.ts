@@ -14,6 +14,10 @@ export class ConversationPageComponent {
 
   constructor(private readonly conversationService: ConversationService) {}
 
+  startConversation(): void {
+    this.conversationService.startConversation();
+  }
+
   sendMessage({ messageContent, messageReceivers }: IMessageSubmitPayload): void {
     this.conversationService.sendMessage(messageContent, messageReceivers);
   }

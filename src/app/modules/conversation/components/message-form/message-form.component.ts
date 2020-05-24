@@ -128,7 +128,7 @@ export class MessageFormComponent implements OnInit, OnDestroy {
       return;
     }
 
-    const messageContentFormControl = this.form.get('messageConent');
+    const messageContentFormControl = this.form.get('messageContent');
 
     if (isDisabled) {
       messageContentFormControl?.disable();

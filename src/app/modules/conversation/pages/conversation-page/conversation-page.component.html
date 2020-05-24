@@ -16,7 +16,13 @@
       [activeUsersCount]="conversationState.usersCount"
     ></app-conversation-page-header>
 
-    <app-chat class="chat"></app-chat>
+    <app-chat
+      class="chat"
+      [isConversationStarted]="conversationState.isConversationStarted"
+      [isConversationStarting]="conversationState.isConversationStarting"
+      [messages]="conversationState.messages"
+      (conversationStart)="startConversation()"
+    ></app-chat>
 
     <app-message-form
       [isDisabled]="!conversationState.isConversationStarted"

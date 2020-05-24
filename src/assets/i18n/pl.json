@@ -12,6 +12,7 @@
     "enter": "enter",
     "esc": "esc",
     "typeYourMessage": "Napisz wiadomość...",
-    "areYouSure": "Na pewno?"
+    "areYouSure": "Na pewno?",
+    "startConversation": "Rozpocznij rozmowę"
   }
 }

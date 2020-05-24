@@ -3,6 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { ChatComponent } from './components/chat/chat.component';
+import { MessageComponent } from './components/chat/message/message.component';
 import { ConversationPageHeaderComponent } from './components/conversation-page-header/conversation-page-header.component';
 import { MessageFormComponent } from './components/message-form/message-form.component';
 import { ConversationRoutingModule } from './conversation-routing.module';
@@ -15,7 +16,8 @@ import { ConversationService } from './services/conversation/conversation.servic
     ConversationPageComponent,
     ChatComponent,
     MessageFormComponent,
-    ConversationPageHeaderComponent
+    ConversationPageHeaderComponent,
+    MessageComponent
   ],
   imports: [ConversationRoutingModule, SharedModule, ReactiveFormsModule],
   providers: [ConversationService, ConversationWebSocketService]
