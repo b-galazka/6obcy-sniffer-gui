@@ -10,9 +10,10 @@ import {
 } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { OnChange, SimpleChange } from 'property-watch-decorator';
 import { BehaviorSubject, Subject, timer } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
+
 import { isArrayValidator } from 'src/app/modules/shared/validators/is-array.validator';
 import { Stranger } from '../../services/conversation/enums/stranger.enum';
 import { ConversationEndStep } from './conversation-end-step.enum';
@@ -28,7 +29,7 @@ export class MessageFormComponent implements OnInit, OnDestroy {
   readonly Stranger = Stranger;
   readonly ConversationEndStep = ConversationEndStep;
 
-  @Input() isDisabled: boolean;
+  @OnChange('handleFormDisablationChange') @Input() isDisabled: boolean;
   @Output() readonly messageSubmit = new EventEmitter<IMessageSubmitPayload>();
   @Output() readonly conversationEnd = new EventEmitter<void>();
 
@@ -54,7 +55,7 @@ export class MessageFormComponent implements OnInit, OnDestroy {
 
   private buildForm(): void {
     this.form = this.formBuilder.group({
-      messageContent: [null, Validators.required],
+      messageContent: [{ value: null, disabled: this.isDisabled }, Validators.required],
       messageReceivers: [null, [Validators.required, Validators.minLength(1), isArrayValidator]]
     });
   }
@@ -83,6 +84,10 @@ export class MessageFormComponent implements OnInit, OnDestroy {
   }
 
   private toggleMessageReceiver(messageReceiver: Stranger): void {
+    if (this.isDisabled) {
+      return;
+    }
+
     const messageReceiversFormControl = this.form.get('messageReceivers');
     const messageReceivers: Stranger[] = messageReceiversFormControl?.value;
     const isReceiverSelected = messageReceivers.includes(messageReceiver);
@@ -105,6 +110,10 @@ export class MessageFormComponent implements OnInit, OnDestroy {
 
   @HostListener('document:keyup.esc')
   handleConversationEndButtonClick(): void {
+    if (this.isDisabled) {
+      return;
+    }
+
     if (this.conversationEndStep$.value === ConversationEndStep.endConversation) {
       this.conversationEndStep$.next(ConversationEndStep.confirmConversationEnd);
       return;
@@ -112,6 +121,20 @@ export class MessageFormComponent implements OnInit, OnDestroy {
 
     this.conversationEnd.emit();
     this.conversationEndStep$.next(ConversationEndStep.endConversation);
+  }
+
+  handleFormDisablationChange(isDisabled: boolean, { firstChange }: SimpleChange<boolean>): void {
+    if (firstChange) {
+      return;
+    }
+
+    const messageContentFormControl = this.form.get('messageConent');
+
+    if (isDisabled) {
+      messageContentFormControl?.disable();
+    } else {
+      messageContentFormControl?.enable();
+    }
   }
 
   ngOnDestroy(): void {

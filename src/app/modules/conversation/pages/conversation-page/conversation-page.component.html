@@ -12,11 +12,16 @@
 
   <ng-template #pageContent>
     <app-conversation-page-header
-      [activeUsersCount]="conversationState.usersCount"
       class="page-header"
+      [activeUsersCount]="conversationState.usersCount"
     ></app-conversation-page-header>
 
     <app-chat class="chat"></app-chat>
-    <app-message-form></app-message-form>
+
+    <app-message-form
+      [isDisabled]="!conversationState.isConversationStarted"
+      (conversationEnd)="endConveration()"
+      (messageSubmit)="sendMessage($event)"
+    ></app-message-form>
   </ng-template>
 </div>

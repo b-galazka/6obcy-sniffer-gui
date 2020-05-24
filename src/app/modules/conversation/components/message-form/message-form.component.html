@@ -1,4 +1,3 @@
-<!-- TODO: add styles for hovered and disabled buttons/inputs -->
 <form [formGroup]="form" (ngSubmit)="submitForm()">
   <div class="stranger-buttons-container">
     <button
@@ -25,7 +24,12 @@
   </div>
 
   <div class="textarea-container">
-    <button type="button" class="rounded-box textarea-button" [disabled]="isDisabled">
+    <button
+      type="button"
+      class="rounded-box textarea-button"
+      [disabled]="isDisabled"
+      (click)="handleConversationEndButtonClick()"
+    >
       <p [ngSwitch]="conversationEndStep$ | async">
         <ng-container *ngSwitchCase="ConversationEndStep.endConversation">
           {{ 'conversation.endConversation' | transloco }}
@@ -43,7 +47,6 @@
       class="rounded-box textarea"
       formControlName="messageContent"
       [placeholder]="'conversation.typeYourMessage' | transloco"
-      [disabled]="isDisabled"
       (keydown.enter)="$event.preventDefault(); submitForm()"
     ></textarea>
 

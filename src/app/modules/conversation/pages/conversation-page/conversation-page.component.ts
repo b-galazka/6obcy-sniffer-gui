@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+import { IMessageSubmitPayload } from '../../components/message-form/message-submit-payload.interface';
 import { ConversationService } from '../../services/conversation/conversation.service';
 
 @Component({
@@ -11,4 +13,12 @@ export class ConversationPageComponent {
   readonly conversationState$ = this.conversationService.state$;
 
   constructor(private readonly conversationService: ConversationService) {}
+
+  sendMessage({ messageContent, messageReceivers }: IMessageSubmitPayload): void {
+    this.conversationService.sendMessage(messageContent, messageReceivers);
+  }
+
+  endConveration(): void {
+    this.conversationService.endConversation();
+  }
 }
