@@ -61,7 +61,7 @@ export class MessageFormComponent implements OnInit, OnDestroy {
   }
 
   private setInitialFormState(): void {
-    this.form.patchValue({ messageReceivers: [] });
+    this.form.patchValue({ messageContent: null, messageReceivers: [] });
   }
 
   private initConversationEndButtonTimeout(): void {
@@ -131,6 +131,7 @@ export class MessageFormComponent implements OnInit, OnDestroy {
     const messageContentFormControl = this.form.get('messageContent');
 
     if (isDisabled) {
+      this.setInitialFormState();
       messageContentFormControl?.disable();
     } else {
       messageContentFormControl?.enable();

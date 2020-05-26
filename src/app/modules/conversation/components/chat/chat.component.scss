@@ -1,9 +1,19 @@
 :host {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .chat-container {
+  flex: 1 1 auto;
+  overflow: hidden;
+  display: flex;
+  padding-right: 0;
+}
+
+.chat-content {
+  overflow: auto;
+  padding-right: 1.6rem;
   flex: 1 1 auto;
 }
 

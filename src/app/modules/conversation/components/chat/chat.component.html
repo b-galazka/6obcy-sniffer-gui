@@ -1,18 +1,20 @@
 <section class="rounded-box chat-container">
-  <app-message
-    *ngFor="let message of messages; trackBy: trackMessages"
-    class="message"
-    [message]="message"
-  >
-  </app-message>
-
-  <div *ngIf="!isConversationStarted" class="centered-content">
-    <button
-      class="start-conversation-button rounded-box"
-      [disabled]="isConversationStarting"
-      (click)="startConversation()"
+  <div #chatContent class="chat-content" (scroll)="calcScrollBottom()">
+    <app-message
+      *ngFor="let message of messages; trackBy: trackMessages"
+      class="message"
+      [message]="message"
     >
-      {{ 'conversation.startConversation' | transloco }}
-    </button>
+    </app-message>
+
+    <div *ngIf="!isConversationStarted" class="centered-content">
+      <button
+        class="start-conversation-button rounded-box"
+        [disabled]="isConversationStarting"
+        (click)="startConversation()"
+      >
+        {{ 'conversation.startConversation' | transloco }}
+      </button>
+    </div>
   </div>
 </section>
