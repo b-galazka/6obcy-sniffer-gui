@@ -1,5 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="submitForm()">
   <div class="stranger-buttons-container">
+    <!-- TODO: "send as" instaed of "send to" -->
     <button
       type="button"
       class="rounded-box stranger-button first-stranger-button"
@@ -7,7 +8,7 @@
       [disabled]="isDisabled"
       (click)="toggleFirstStranger()"
     >
-      <p>{{ 'conversation.sendToGreenStranger' | transloco }}</p>
+      <p>{{ 'conversation.SendToGreenStranger' | transloco }}</p>
       <p class="button-hint">({{ 'conversation.altPlus1' | transloco }})</p>
     </button>
 
@@ -18,7 +19,7 @@
       [disabled]="isDisabled"
       (click)="toggleSecondStranger()"
     >
-      <p>{{ 'conversation.sendToBlueStranger' | transloco }}</p>
+      <p>{{ 'conversation.SendToBlueStranger' | transloco }}</p>
       <p class="button-hint">({{ 'conversation.altPlus2' | transloco }})</p>
     </button>
   </div>
@@ -32,11 +33,11 @@
     >
       <p [ngSwitch]="conversationEndStep$ | async">
         <ng-container *ngSwitchCase="ConversationEndStep.endConversation">
-          {{ 'conversation.endConversation' | transloco }}
+          {{ 'conversation.EndConversation' | transloco }}
         </ng-container>
 
         <ng-container *ngSwitchCase="ConversationEndStep.confirmConversationEnd">
-          {{ 'conversation.areYouSure' | transloco }}
+          {{ 'conversation.AreYouSure' | transloco }}
         </ng-container>
       </p>
 
@@ -46,7 +47,7 @@
     <textarea
       class="rounded-box textarea"
       formControlName="messageContent"
-      [placeholder]="'conversation.typeYourMessage' | transloco"
+      [placeholder]="'conversation.TypeYourMessage' | transloco"
       (keydown.enter)="$event.preventDefault(); submitForm()"
     ></textarea>
 

@@ -1,1 +1,53 @@
-<p>{{ message | json }}</p>
+<article class="message-container" [class.my-message-container]="message.isEmittedByMe">
+  <div
+    class="message"
+    [attr.data-time]="message.timestamp | date: 'H:mm:ss'"
+    [ngSwitch]="message.type"
+  >
+    <ng-container *ngSwitchCase="MessageType.conversationStart">
+      {{ 'conversation.ConversationStarted' | transloco }}
+    </ng-container>
+
+    <ng-container *ngSwitchCase="MessageType.conversationEnd">
+      <ng-container *ngIf="message.author">
+        {{ 'conversation.ConversationEndedBy' | transloco }}
+
+        <span
+          [class.first-stranger-message]="message.author === Stranger.first"
+          [class.second-stranger-message]="message.author === Stranger.second"
+        >
+          {{ 'conversation.byStranger' | transloco }}
+        </span>
+      </ng-container>
+
+      <ng-template #disconnectionByMe>
+        {{ 'conversation.ConversationEndedByYou' | transloco }}
+      </ng-template>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="MessageType.randomTopic">
+      <span
+        [class.first-stranger-message]="message.author === Stranger.first"
+        [class.second-stranger-message]="message.author === Stranger.second"
+      >
+        {{ 'conversation.stranger' | transloco }}
+      </span>
+
+      {{ 'conversation.heDrewQuestion' | transloco }}:
+      {{ message.content }}
+    </ng-container>
+
+    <span
+      *ngSwitchCase="MessageType.message"
+      [class.first-stranger-message]="message.author === Stranger.first"
+      [class.second-stranger-message]="message.author === Stranger.second"
+      [class.prohibited-message]="message.isProhibited"
+    >
+      {{ message.content }}
+    </span>
+
+    <ng-container *ngSwitchCase="MessageType.disconnection">
+      {{ 'conversation.YouHaveBeenDisconnected' | transloco }}
+    </ng-container>
+  </div>
+</article>

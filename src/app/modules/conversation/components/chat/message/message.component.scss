@@ -1,0 +1,67 @@
+@import 'variables';
+
+.message-container {
+  display: flex;
+}
+
+.my-message-container {
+  justify-content: flex-end;
+}
+
+.message {
+  max-width: 80%;
+  position: relative;
+
+  &:hover {
+    &::before {
+      content: '';
+      display: block;
+      border-right: 9px solid $dark-gray;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      position: absolute;
+      left: calc(100% + 11px);
+      top: calc(50% - 5px);
+    }
+
+    &::after {
+      content: attr(data-time);
+      display: block;
+      background-color: $dark-gray;
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translate(20px, -50%);
+      font-size: 1.3rem;
+      padding: 0.4rem;
+      border-radius: 0.4rem;
+    }
+  }
+}
+
+.my-message-container .message:hover {
+  &::before {
+    border-right: none;
+    border-left: 9px solid $dark-gray;
+    right: calc(100% + 11px);
+    left: auto;
+  }
+
+  &::after {
+    right: 100%;
+    left: auto;
+    transform: translate(-20px, -50%);
+  }
+}
+
+.first-stranger-message {
+  color: $first-stranger-green;
+}
+
+.second-stranger-message {
+  color: $second-stranger-blue;
+}
+
+.prohibited-message {
+  text-decoration: line-through;
+}

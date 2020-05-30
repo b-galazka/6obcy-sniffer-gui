@@ -22,6 +22,7 @@ import { IMessage } from '../../services/conversation/interfaces/message.interfa
 export class ChatComponent implements OnInit, AfterViewChecked {
   @OnChange('calcScrollBottom') @Input() isConversationStarted: boolean;
   @Input() isConversationStarting: boolean;
+  @Input() isConnected: boolean;
   @OnChange('calcScrollBottom') @Input() messages: IMessage[];
   @Output() readonly conversationStart = new EventEmitter<void>();
   @ViewChild('chatContent') chatContentRef: ElementRef<HTMLDivElement>;

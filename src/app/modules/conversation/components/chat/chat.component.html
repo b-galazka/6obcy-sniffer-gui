@@ -7,13 +7,13 @@
     >
     </app-message>
 
-    <div *ngIf="!isConversationStarted" class="centered-content">
+    <div *ngIf="!isConversationStarted && isConnected" class="centered-content">
       <button
         class="start-conversation-button rounded-box"
         [disabled]="isConversationStarting"
         (click)="startConversation()"
       >
-        {{ 'conversation.startConversation' | transloco }}
+        {{ 'conversation.StartConversation' | transloco }}
       </button>
     </div>
   </div>

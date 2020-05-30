@@ -1,18 +1,25 @@
 {
   "conversation": {
-    "unknownErrorTryAgain": "Wystąpił nieznany błąd. Spróbuj ponownie później.",
+    "UnknownErrorTryAgain": "Wystąpił nieznany błąd. Spróbuj ponownie później.",
     "oneActiveUser": "aktywny użytkownik",
     "xOfactiveUsers": "aktywnych użytkowników",
-    "sendToGreenStranger": "Wyślij zielonemu obcemu",
-    "sendToBlueStranger": "Wyślij niebieskiemu obcemu",
+    "SendToGreenStranger": "Wyślij zielonemu obcemu",
+    "SendToBlueStranger": "Wyślij niebieskiemu obcemu",
     "altPlus1": "alt + 1",
     "altPlus2": "alt + 2",
-    "endConversation": "Zakończ rozmowę",
+    "EndConversation": "Zakończ rozmowę",
     "send": "Wyślij",
     "enter": "enter",
     "esc": "esc",
-    "typeYourMessage": "Napisz wiadomość...",
-    "areYouSure": "Na pewno?",
-    "startConversation": "Rozpocznij rozmowę"
+    "TypeYourMessage": "Napisz wiadomość...",
+    "AreYouSure": "Na pewno?",
+    "StartConversation": "Rozpocznij rozmowę",
+    "ConversationStarted": "Rozmowa rozpoczęta",
+    "ConversationEndedByYou": "Rozmowa zakończona przez Ciebie",
+    "ConversationEndedBy": "Rozmowa zakończona przez",
+    "byStranger": "obcego",
+    "stranger": "stranger",
+    "heDrewQuestion": "wylosował pytanie",
+    "YouHaveBeenDisconnected": "Rozłączono Cię"
   }
 }

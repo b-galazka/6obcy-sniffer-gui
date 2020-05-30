@@ -7,7 +7,7 @@
     *ngIf="!conversationState.wasConnected; else pageContent"
     class="rounded-box connection-error"
   >
-    <p>{{ 'conversation.unknownErrorTryAgain' | transloco }}</p>
+    <p>{{ 'conversation.UnknownErrorTryAgain' | transloco }}</p>
   </div>
 
   <ng-template #pageContent>
@@ -20,6 +20,7 @@
       class="chat"
       [isConversationStarted]="conversationState.isConversationStarted"
       [isConversationStarting]="conversationState.isConversationStarting"
+      [isConnected]="conversationState.isConnected"
       [messages]="conversationState.messages"
       (conversationStart)="startConversation()"
     ></app-chat>
