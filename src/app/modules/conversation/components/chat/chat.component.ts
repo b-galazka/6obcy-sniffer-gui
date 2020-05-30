@@ -22,6 +22,8 @@ import { IMessage } from '../../services/conversation/interfaces/message.interfa
 export class ChatComponent implements OnInit, AfterViewChecked {
   @OnChange('checkIfShouldScrollToBottom') @Input() isConversationStarted: boolean;
   @OnChange('checkIfShouldScrollToBottom') @Input() messages: IMessage[];
+  @OnChange('checkIfShouldScrollToBottom') @Input() isFirstStrangerTyping: boolean;
+  @OnChange('checkIfShouldScrollToBottom') @Input() isSecondStrangerTyping: boolean;
   @Input() isConversationStarting: boolean;
   @Input() isConnected: boolean;
   @Output() readonly conversationStart = new EventEmitter<void>();

@@ -19,7 +19,9 @@
     "ConversationEndedBy": "Rozmowa zakończona przez",
     "byStranger": "obcego",
     "stranger": "stranger",
+    "Stranger": "Stranger",
     "heDrewQuestion": "wylosował pytanie",
-    "YouHaveBeenDisconnected": "Rozłączono Cię"
+    "YouHaveBeenDisconnected": "Rozłączono Cię",
+    "isTyping": "pisze..."
   }
 }

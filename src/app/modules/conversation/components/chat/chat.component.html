@@ -7,7 +7,17 @@
     >
     </app-message>
 
-    <!-- TODO: display "stranger is typing" -->
+    <ng-container *ngIf="isConversationStarted">
+      <article *ngIf="isFirstStrangerTyping" class="message">
+        <span class="first-stranger-message">{{ 'conversation.Stranger' | transloco }}</span>
+        {{ 'conversation.isTyping' | transloco }}
+      </article>
+
+      <article *ngIf="isSecondStrangerTyping" class="message">
+        <span class="second-stranger-message">{{ 'conversation.Stranger' | transloco }}</span>
+        {{ 'conversation.isTyping' | transloco }}
+      </article>
+    </ng-container>
 
     <div *ngIf="!isConversationStarted && isConnected" class="centered-content">
       <button
