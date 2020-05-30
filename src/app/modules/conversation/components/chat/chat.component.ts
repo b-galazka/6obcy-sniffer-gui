@@ -20,17 +20,25 @@ import { IMessage } from '../../services/conversation/interfaces/message.interfa
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChatComponent implements OnInit, AfterViewChecked {
-  @OnChange('calcScrollBottom') @Input() isConversationStarted: boolean;
+  @OnChange('checkIfShouldScrollToBottom') @Input() isConversationStarted: boolean;
+  @OnChange('checkIfShouldScrollToBottom') @Input() messages: IMessage[];
   @Input() isConversationStarting: boolean;
   @Input() isConnected: boolean;
-  @OnChange('calcScrollBottom') @Input() messages: IMessage[];
   @Output() readonly conversationStart = new EventEmitter<void>();
   @ViewChild('chatContent') chatContentRef: ElementRef<HTMLDivElement>;
 
   private scrollBottom: number;
+  private shouldScrollToBottom: boolean;
 
   ngOnInit(): void {
+    this.checkIfShouldScrollToBottom();
+  }
+
+  private checkIfShouldScrollToBottom(): void {
     this.calcScrollBottom();
+
+    const scrollBottomThreeshold = 50;
+    this.shouldScrollToBottom = this.scrollBottom <= scrollBottomThreeshold;
   }
 
   calcScrollBottom(): void {
@@ -44,23 +52,21 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    this.scrollToBottom();
+    if (this.shouldScrollToBottom) {
+      this.scrollToBottom();
+      this.shouldScrollToBottom = false;
+    }
   }
 
-  trackMessages(index: number, message: IMessage): string {
-    return message.id;
+  private scrollToBottom(): void {
+    this.chatContentRef.nativeElement.scrollTop = this.chatContentRef.nativeElement.scrollHeight;
   }
 
   startConversation(): void {
     this.conversationStart.emit();
   }
 
-  private scrollToBottom(): void {
-    const { scrollHeight } = this.chatContentRef.nativeElement;
-    const scrollBottomThreeshold = 50;
-
-    if (this.scrollBottom <= scrollBottomThreeshold) {
-      this.chatContentRef.nativeElement.scrollTop = scrollHeight;
-    }
+  trackMessages(index: number, message: IMessage): string {
+    return message.id;
   }
 }

@@ -191,6 +191,7 @@ export class ConversationService extends BaseStateService<IConversationState> {
       isConnecting: false,
       isConnected: false,
       isConnectionError: true,
+      isConversationStarted: false,
       messages: [...this.state.messages, disconnectionMessage]
     });
   }
