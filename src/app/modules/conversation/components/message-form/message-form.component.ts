@@ -73,12 +73,12 @@ export class MessageFormComponent implements OnInit, OnDestroy {
       .subscribe(() => this.conversationEndStep$.next(ConversationEndStep.endConversation));
   }
 
-  @HostListener('document:keyup.alt.f1')
+  @HostListener('document:keyup.alt.f2')
   toggleFirstStranger(): void {
     this.toggleMessageReceiver(Stranger.first);
   }
 
-  @HostListener('document:keyup.alt.f2')
+  @HostListener('document:keyup.alt.f1')
   toggleSecondStranger(): void {
     this.toggleMessageReceiver(Stranger.second);
   }

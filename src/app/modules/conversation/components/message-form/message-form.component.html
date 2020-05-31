@@ -1,25 +1,24 @@
 <form [formGroup]="form" (ngSubmit)="submitForm()">
   <div class="stranger-buttons-container">
-    <!-- TODO: "send as" instaed of "send to" -->
     <button
       type="button"
       class="rounded-box stranger-button first-stranger-button"
-      [class.stranger-button-filled]="form.value.messageReceivers | arrayIncludes: Stranger.first"
+      [class.stranger-button-filled]="form.value.messageReceivers | arrayIncludes: Stranger.second"
       [disabled]="isDisabled"
-      (click)="toggleFirstStranger()"
+      (click)="toggleSecondStranger()"
     >
-      <p>{{ 'conversation.SendToGreenStranger' | transloco }}</p>
+      <p>{{ 'conversation.SendAsGreenStranger' | transloco }}</p>
       <p class="button-hint">({{ 'conversation.altPlus1' | transloco }})</p>
     </button>
 
     <button
       type="button"
       class="rounded-box stranger-button second-stranger-button"
-      [class.stranger-button-filled]="form.value.messageReceivers | arrayIncludes: Stranger.second"
+      [class.stranger-button-filled]="form.value.messageReceivers | arrayIncludes: Stranger.first"
       [disabled]="isDisabled"
-      (click)="toggleSecondStranger()"
+      (click)="toggleFirstStranger()"
     >
-      <p>{{ 'conversation.SendToBlueStranger' | transloco }}</p>
+      <p>{{ 'conversation.SendAsBlueStranger' | transloco }}</p>
       <p class="button-hint">({{ 'conversation.altPlus2' | transloco }})</p>
     </button>
   </div>
